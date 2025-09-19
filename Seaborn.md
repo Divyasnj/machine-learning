@@ -57,10 +57,17 @@ sns.boxplot(x="day", y="total_bill", data=tips)
 ```python  
 sns.pairplot(tips, hue="sex")  
 ```  
-👉 Visualizes numerous relationships concurrently.  
-✅ How you should analyze:  
-- Seek patterns (Does a larger bill correlate with a more substantial tip?).  
-- Compare demographics (Do men provide larger tips than women? Do smokers tend to spend more?).  
-- Examine distributions (Are tips normally distributed? Which day exhibits the highest expenditures?).  
-- Grasp percentages (Tip percentage offers a more nuanced understanding than mere tip values).  
+📊 Reading Your Heatmap
+
+-The numbers in each box show the correlation coefficient (from -1 to +1):
+-1.0 (Red diagonal) → a column compared with itself (perfect correlation).
+
+-0.68 (total_bill ↔ tip) → Strong positive correlation.
+👉 As the total bill increases, the tip also increases.
+
+-0.60 (total_bill ↔ size) → Medium-strong positive correlation.
+👉 Bigger tables usually have bigger bills.
+
+-0.49 (tip ↔ size) → Moderate positive correlation.
+👉 Larger groups tend to give bigger tips, but not as strong as bill vs tip. 
 ```  
