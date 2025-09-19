@@ -1,4 +1,4 @@
-```
+
 📊 Structure of Tips Dataset:  
 You can load it in the following manner:  
 ```python  
@@ -56,7 +56,45 @@ sns.boxplot(x="day", y="total_bill", data=tips)
 - **Pairplot (Overall View)**  
 ```python  
 sns.pairplot(tips, hue="sex")  
-```  
+```
+```python
+corr = tips.corr(numeric_only=True)
+sns.heatmap(corr, annot=True, cmap="coolwarm", linewidths=0.5)
+plt.title("Correlation Heatmap")
+plt.show()
+```
+
+🔍 How to Read This Pair Plot
+
+Diagonal (Top-Left to Bottom-Right):
+
+These are distributions (KDE plots) of each numeric column:
+
+total_bill (top row): Most bills are around 10–20.
+
+tip: Most tips are between 2–4 dollars.
+
+size: Most tables have 2–4 people.
+
+You can see separate curves for Male (blue) and Female (orange).
+
+Off-Diagonal (Scatter Plots):
+
+total_bill vs tip (middle plot):
+
+Dots go upward diagonally → as bills increase, tips increase.
+
+No big gender difference, both Male & Female follow same trend.
+
+total_bill vs size (top-right plot):
+
+Larger bills usually come from bigger table sizes.
+
+Size = 2–4 is most common.
+
+tip vs size (bottom-middle plot):
+
+Bigger groups → slightly bigger tips, but not always.
 📊 Reading Your Heatmap
 
 -The numbers in each box show the correlation coefficient (from -1 to +1):
@@ -70,4 +108,4 @@ sns.pairplot(tips, hue="sex")
 
 -0.49 (tip ↔ size) → Moderate positive correlation.
 👉 Larger groups tend to give bigger tips, but not as strong as bill vs tip. 
-```  
+ 
